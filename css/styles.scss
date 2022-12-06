@@ -2,12 +2,28 @@
 @import url('https://fonts.cdnfonts.com/css/games');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Righteous');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,700|Montserrat:700');
+
 //SASS variables
 $primary_color   : greenyellow;
 $secondary_color : #333;
 $wrapper_color   : darkgrey;
+$base_color      : rgba(255, 255, 255, 0.30);
 $main_border     : 1px black solid;
 $main_font       : 'Josefin Sans',sans-serif;
+
+//glassy continer for pop-up windows
+@mixin continer {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.6px);
+    -webkit-backdrop-filter: blur(4.6px);
+    border: 1px solid $base_color;
+    padding: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
 
 *,
 *:before,
@@ -55,7 +71,7 @@ body {
         width: 45%;
         text-align: center;
         margin: 5px;
-        background-color: rgba(255, 255, 255, 0.30);
+        background-color: $base_color;
         box-shadow: 0px 0px 20px black;
 
         #box1-1,
@@ -79,17 +95,8 @@ body {
 #pop-rules {
     margin: 100px 30%;
     border: 3px solid $wrapper_color;
-    padding: 20px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.6px);
-    -webkit-backdrop-filter: blur(4.6px);
-    border: 1px solid rgba(255, 255, 255, 0.29);
     font-family: $main_font;
+    @include continer;
 }
 
 #closePopup {
@@ -104,20 +111,11 @@ body {
     display: none;
     margin: 100px 30%;
     border-radius: 5px;
-    padding: 20px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.6px);
-    -webkit-backdrop-filter: blur(4.6px);
-    border: 1px solid rgba(255, 255, 255, 0.29);
     font-family: 'Games', sans-serif;
     color: black;
     font-size: 2.5vw;
+    @include continer;
 }
 
 .main_btn {
@@ -171,7 +169,8 @@ footer {
     #win-popup {
         margin: 100px 40px;
     }
-    img{
+
+    img {
         width: 40%;
     }
 }
